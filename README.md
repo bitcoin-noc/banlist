@@ -33,6 +33,7 @@ in the YYYY-MM-DD format. The list of `tags` describes the activity of the
 entity. When possible, existing tags should be reused when adding a new entity.
 The list of `ips` can contain either single IP addreses (IPv4, IPv6) like
 `208.67.222.222` or IP address ranges (IPv4 and IPv6) like `208.67.222.0/24`.
+Also check `ips/` for entities with a large number of individual IP addresses.
 
 ```TOML
 [[entities]]

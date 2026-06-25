@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import tomllib
 import argparse
 
@@ -39,6 +40,15 @@ def main():
     args = parser.parse_args()
 
     data = tomllib.load(args.input_file)
+
+    # An entity's IPs may be listed inline via "ips" or, for large lists, kept
+    # in a separate file referenced by "ips_file". An "ips_file" path is resolved
+    # relative to the directory the input TOML file lives in.
+    toml_dir = os.path.dirname(os.path.abspath(args.input_file.name))
+    for entity in data["entities"]:
+        if "ips_file" in entity:
+            with open(os.path.join(toml_dir, entity["ips_file"])) as f:
+                entity["ips"] = [line.strip() for line in f if line.strip()]
 
     print("loaded {} entities with {} IP addresses".format(len(data["entities"]), sum(len(e["ips"]) for e in data["entities"])))
 

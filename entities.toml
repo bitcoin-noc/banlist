@@ -32,3 +32,26 @@ ips = [
   "91.198.115.0/24",
   "2604:d500:4:1::/64",
 ]
+
+[[entities]]
+name = "LinodeGhost"
+added = 2026-06-25
+tags = []
+description = """
+This entity with user agent /Satoshi:27.0.0/ on Linode/AS63949 only gossips itself.
+2,006 IP addresses were gosipped in total but half of these IP addresses seem dead.
+The reachable ones always have these characteristics:
+- report a block height of 0
+- answer every GETADDR request with exactly 256 addresses. each address in the response is:
+    - timestamped to the present
+    - belongs to the fleet itself
+
+This fleet did not exist in 2024. Across addrman snapshots on peer.observer they occupy
+around 0.2% of the new table but around 6% of the tried table, rising to 10% in some snapshots.
+When crawling the network these are by far the most frequently seen IPv4 addresses in GETADDR responses.
+Of the 5,000 most-advertised addresses, almost all of which are onion,
+only nine are IPv4 and all nine belong to this fleet.
+
+More details: https://bnoc.xyz/t/small-getaddr-responses-from-897-nodes-satoshi-27-0-0-on-as63949/121/1
+"""
+ips_file = "ips/linodeghost.txt"
