@@ -7,28 +7,52 @@ name = "LinkingLion"
 added = 2023-03-27
 tags = []
 description = """
-This entity connects from four IP address ranges to listening Bitcoin nodes
+This entity connects from multiple IP address ranges to listening Bitcoin nodes
 using fake user agents. While many of the connections are short-lived, some
 listen for transaction announcements. This might allow the entity to link
 transactions to IP addresses.
 
-The IP address ranges are annouced by Lionlink Networks (AS54098):
+On 2025-12-05, the entity stopped connecting from the IP address ranges
+announced by Lionlink Networks (AS54098) it had used since at least 2018 and
+switched to ranges announced by Spruce Creek Networks LLC (AS401476):
 
-- `162.218.65.0/24`
-- `209.222.252.0/24`
-- `91.198.115.0/24`
-- `2604:d500:4:1::/64`
+- `143.20.137.0/24`
+- `31.58.215.0/24`
+- `87.229.79.0/24`
+- `2602:f5c0:0:ace::/64`
 
-Some of these IP ranges have been making connections to Bitcoin nodes since
-at least 2018 and connect to nodes on the Monero network too. It's unclear if
-they are VPN endpoints. The entity could be a blockchain analysis company
-enhancing their products with the collected data.
+Additionally, the entity connects from two single hosts. No other addresses in
+the surrounding `/24` ranges have been observed connecting, and whether those
+`/24` ranges belong to AS401476 has not been confirmed:
 
-More details: https://b10c.me/observations/06-linkinglion
+- `104.234.118.2`
+- `69.17.52.1`
+
+<details>
+<summary>Original IP address ranges (Lionlink Networks, used until 2025-12-05)</summary>
+<ul>
+<li><code>162.218.65.0/24</code></li>
+<li><code>209.222.252.0/24</code></li>
+<li><code>91.198.115.0/24</code></li>
+<li><code>2604:d500:4:1::/64</code></li>
+<li><code>199.116.84.0/24</code> (no longer announced since 2026-03-30)</li>
+</ul>
+</details>
+
+It's unclear if these are VPN endpoints. The entity could be a blockchain
+analysis company enhancing their products with the collected data.
+
+More details:
+
+- https://b10c.me/observations/06-linkinglion
+- https://b10c.me/blog/013-one-year-update-on-linkinglion
+- https://bnoc.xyz/t/linkinglion-an-entity-linking-bitcoin-transactions-to-ips/12
 """
 ips = [
-  "162.218.65.0/24",
-  "209.222.252.0/24",
-  "91.198.115.0/24",
-  "2604:d500:4:1::/64",
+  "143.20.137.0/24",
+  "31.58.215.0/24",
+  "87.229.79.0/24",
+  "2602:f5c0:0:ace::/64",
+  "104.234.118.2/32", # single host
+  "69.17.52.1/32",    # single host
 ]

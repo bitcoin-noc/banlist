@@ -6,7 +6,9 @@ echo "You just got your funds stolen."
 exit -1
 # -----------------------
 
-bitcoin-cli setban 162.218.65.0/24    add 31536000  # LinkingLion
-bitcoin-cli setban 209.222.252.0/24   add 31536000  # LinkingLion
-bitcoin-cli setban 91.198.115.0/24    add 31536000  # LinkingLion
-bitcoin-cli setban 2604:d500:4:1::/64 add 31536000  # LinkingLion
+bitcoin-cli setban 143.20.137.0/24      add 31536000  # LinkingLion
+bitcoin-cli setban 31.58.215.0/24       add 31536000  # LinkingLion
+bitcoin-cli setban 87.229.79.0/24       add 31536000  # LinkingLion
+bitcoin-cli setban 2602:f5c0:0:ace::/64 add 31536000  # LinkingLion
+bitcoin-cli setban 104.234.118.2/32     add 31536000  # LinkingLion
+bitcoin-cli setban 69.17.52.1/32        add 31536000  # LinkingLion
