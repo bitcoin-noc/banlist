@@ -1,4 +1,4 @@
-name: Generate and deploy HTML
+name: Generate and deploy website
 
 on:
   push:
@@ -24,20 +24,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.11
-      - run: pip install markdown
+          python-version: "3.12"
       - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - run: mkdir -p www
-      - run: python contrib/gen-website/gen-website.py www
+        uses: actions/configure-pages@v5
+      - name: Build banlists and website
+        run: python contrib/banlist.py site www
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: 'www'
+          path: "www"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,24 @@
+name: Check dataset
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate entities
+        run: python contrib/banlist.py validate
+      - name: Build banlists and website
+        run: python contrib/banlist.py site "$RUNNER_TEMP/www"
