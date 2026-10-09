@@ -1,0 +1,31 @@
+<h1>Bitcoin banlist</h1>
+<p class="lead">$site_description</p>
+
+<h2 id="using">Using the list</h2>
+<p>The banlist is available in these formats:</p>
+<ul>
+  <li><a href="$cli_file">$cli_file</a>: <code>bitcoin-cli setban</code> commands</li>
+  <li><a href="$gui_file">$gui_file</a>: <code>setban</code> commands for the console of the Bitcoin Core GUI</li>
+  <li><a href="$plain_file">$plain_file</a>: one IP address or network per line</li>
+  <li><a href="$json_file">$json_file</a>: all entities with their networks and metadata (<a href="$schema_file">JSON Schema</a>)</li>
+</ul>
+<p class="warning"><strong>These files are not scripts.</strong> Always check files downloaded from the internet for malicious commands before using them.</p>
+<p>Networks are banned for $default_bantime_days days unless an entity specifies a different duration. The list is optional, centralized, and likely incomplete. Entities are added and removed by hand; see the <a href="$repo_url">repository</a> for how to contribute.</p>
+
+<h2 id="entities">Entities</h2>
+<p class="muted">$entity_count with $network_count currently on the list.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Entity</th><th>Added</th><th>Tags</th><th class="num">Networks</th><th>Summary</th></tr></thead>
+  <tbody>
+$entity_rows
+  </tbody>
+</table>
+</div>
+
+$removed_section
+
+<h2 id="tags">Tags</h2>
+<dl class="tags">
+$tag_legend
+</dl>

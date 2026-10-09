@@ -1,0 +1,15 @@
+# Controlled vocabulary of entity tags.
+# Every tag used in entities/*.toml must be defined here. Keep descriptions
+# short: they are shown as a legend on the website.
+
+[tags.tx-spy]
+description = "Listens for transaction announcements, likely to link transactions to IP addresses."
+
+[tags.inv-eater]
+description = "Keeps long-lived connections and receives INVs but never requests or relays transactions."
+
+[tags.addr-spam]
+description = "Floods the address gossip with addresses belonging to itself."
+
+[tags.monitoring]
+description = "Network monitoring or research crawler."
