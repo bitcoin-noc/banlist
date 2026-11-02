@@ -18,6 +18,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.repository == 'bitcoin-noc/banlist'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
